@@ -17,9 +17,7 @@ class KaryawanController extends Controller
     {
         $items = Karyawan::all();
 
-        return view('index')->with([
-            'items' => $items
-        ]);
+        return view('index', compact('items'));
     }
 
     /**
