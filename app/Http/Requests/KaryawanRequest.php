@@ -13,7 +13,7 @@ class KaryawanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class KaryawanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mulai_kerja' => 'required|date',
+            'posisi' => 'required',
+            'nama' => 'required|max:255',
+            'rekening' => 'required',
+            'tempat_lahir' => 'required',
+            'tgl_lahir' => 'required|date',
+            'alamat' => 'required',
+            'no_ktp' => 'required',
+            'no_hp' => 'required',
         ];
     }
 }
