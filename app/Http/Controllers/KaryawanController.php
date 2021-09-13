@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Request\KaryawanRequest;
 use Illuminate\Http\Request;
+use App\Models\Karyawan;
 
 class KaryawanController extends Controller
 {
@@ -13,7 +15,11 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-        //
+        $items = Karyawan::all();
+
+        return view('index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
