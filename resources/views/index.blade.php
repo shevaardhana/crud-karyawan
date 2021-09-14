@@ -13,7 +13,7 @@
 <body>
 
 <div class="container">
-    <a href="" class="btn btn-primary btn-sm my-1">+ Tambah Data</a>
+    <a href="{{ route('karyawan.create') }}" class="btn btn-primary btn-sm my-1">+ Tambah Data</a>
   <table class="table">
     <thead>
       <tr>

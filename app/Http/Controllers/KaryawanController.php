@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\KaryawanRequest;
+use App\Http\Requests\KaryawanRequest;
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
 
@@ -27,7 +27,7 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -36,9 +36,12 @@ class KaryawanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KaryawanRequest $request)
     {
-        //
+        $data = $request->all();
+        Karyawan::create($data);
+
+        return redirect()->route('karyawan.index');
     }
 
     /**
