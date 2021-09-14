@@ -14,18 +14,18 @@
 
 <div class="container">
     <a href="{{ route('karyawan.create') }}" class="btn btn-primary btn-sm my-1">+ Tambah Data</a>
-  <table class="table">
+  <table class="table" width="100%">
     <thead>
       <tr>
-        <td>mulai kerja</td>
-        <td>posisi</td>
-        <td>nama</td>
-        <td>rekening</td>
-        <td>tempat tanggal lahir</td>
-        <td>alamat</td>
-        <td>no ktp</td>
-        <td>no hp</td>
-        <td>action</td>
+        <td style="width: 11%;">mulai kerja</td>
+        <td style="width: 5%;">posisi</td>
+        <td style="width: 11%;">nama</td>
+        <td style="width: 10%;">rekening</td>
+        <td style="width: 17%;">tempat tanggal lahir</td>
+        <td style="width: 15%;">alamat</td>
+        <td style="width: 11%;">no ktp</td>
+        <td style="width: 11%;">no hp</td>
+        <td style="width: 10%;">action</td>
       </tr>
     </thead>
     <tbody>
@@ -40,7 +40,7 @@
                 <td>{{ $item->no_ktp }}</td>
                 <td>{{ $item->no_hp }}</td>
                 <td>
-                    <a href="#" class="btn btn-success btn-sm">
+                    <a href="{{ route('karyawan.edit', $item->id) }}" class="btn btn-success btn-sm">
                         <i class="fa fa-pencil"></i>
                     </a>
 

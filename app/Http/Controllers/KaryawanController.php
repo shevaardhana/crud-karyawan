@@ -63,7 +63,11 @@ class KaryawanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Karyawan::findOrFail($id);
+
+        return view('edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -73,9 +77,14 @@ class KaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KaryawanRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Karyawan::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('karyawan.index');
     }
 
     /**
@@ -86,6 +95,9 @@ class KaryawanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Karyawan::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('karyawan.index');
     }
 }
