@@ -18,12 +18,16 @@ class CreateKaryawanTable extends Migration
             $table->date('mulai_kerja');
             $table->string('posisi');
             $table->string('nama');
-            $table->string('rekening');
+            $table->string('nama_bank');
+            $table->string('no_rekening');
             $table->string('tempat_lahir');
             $table->date('tgl_lahir');
-            $table->longText('alamat');
+            $table->longText('alamat_tinggal');
             $table->string('no_ktp');
             $table->string('no_hp');
+            $table->string('nama_emergency_call');
+            $table->string('emergency_call');
+            $table->string('status');
             $table->timestamps();
         });
     }

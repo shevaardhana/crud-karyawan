@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'KaryawanController@index')
     ->name('home');
 
 Route::resource('karyawan', KaryawanController::class);
+Route::get('/karyawan/{id}/set-status', 'KaryawanController@setStatus')->name('karyawan.status');
+Route::get('/cetak', 'CetakController@cetak_pdf');
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\KaryawanRequest;
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
+use PDF;
 
 class KaryawanController extends Controller
 {
@@ -13,6 +14,11 @@ class KaryawanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $items = Karyawan::all();
@@ -36,9 +42,11 @@ class KaryawanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(KaryawanRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
+        $data['status'] = "Bekerja";
+
         Karyawan::create($data);
 
         return redirect()->route('karyawan.index');
@@ -100,4 +108,20 @@ class KaryawanController extends Controller
 
         return redirect()->route('karyawan.index');
     }
+
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:PHK,Bekerja'
+        ]);
+
+        $item = Karyawan::findOrFail($id);
+        $item->status = $request->status;
+
+        $item->save();
+
+        return redirect()->route('karyawan.index');
+    }
+
+
 }

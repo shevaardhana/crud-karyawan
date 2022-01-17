@@ -15,7 +15,7 @@
             <strong>Tambah Data Karyawan</strong>
         </div>
         <div class="card-body card-block">
-             <form action="{{ route('karyawan.store') }}" method="post">
+             <form action="{{ route('karyawan.store') }}" method="POST">
                  @csrf
                  <div class="form-group">
                      <label for="mulai_kerja" class="form-control-label">Mulai Kerja</label>
@@ -36,10 +36,17 @@
                  </div>
 
                  <div class="form-group">
-                     <label for="rekening" class="form-control-label">Rekening</label>
-                     <input type="text" name="rekening" value="{{ old('rekening') }}" class="form-control @error('rekening') is-invalid @enderror"/>
-                     @error('rekening') <div class="text-muted">{{ $message }}</div> @enderror
+                    <label for="nama_bank" class="form-control-label">Nama Bank</label>
+                    <input type="text" name="nama_bank" value="{{ old('nama_bank') }}" class="form-control @error('nama_bank') is-invalid @enderror"/>
+                    @error('nama_bank') <div class="text-muted">{{ $message }}</div> @enderror
                  </div>
+
+                 <div class="form-group">
+                     <label for="rekening" class="form-control-label">No. Rekening</label>
+                     <input type="text" name="no_rekening" value="{{ old('no_rekening') }}" class="form-control @error('no_rekening') is-invalid @enderror"/>
+                     @error('no_rekening') <div class="text-muted">{{ $message }}</div> @enderror
+                 </div>
+
 
                  <div class="form-group">
                     <label for="tempat_lahir" class="form-control-label">Tempat Lahir</label>
@@ -54,9 +61,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="alamat">alamat</label>
-                    <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror">{{ old('alamat') }}</textarea>
-                    @error('alamat') <div class="text-muted">{{ $message }}</div> @enderror
+                    <label for="alamat">Alamat Tinggal</label>
+                    <textarea name="alamat_tinggal" class="form-control @error('alamat_tinggal') is-invalid @enderror">{{ old('alamat_tinggal') }}</textarea>
+                    @error('alamat_tinggal') <div class="text-muted">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="form-group">
@@ -71,9 +78,21 @@
                     @error('no_hp') <div class="text-muted">{{ $message }}</div> @enderror
                 </div>
 
-                 <div class="form-group">
-                     <button class="btn btn-primary btn-block" type="submit">Tambah Karyawan</button>
-                 </div>
+                <div class="form-group">
+                    <label for="nama_emergency_call" class="form-control-label">Nama Emergency Call</label>
+                    <input type="text" name="nama_emergency_call" value="{{ old('nama_emergency_call') }}" class="form-control @error('nama_emergency_call') is-invalid @enderror"/>
+                    @error('nama_emergency_call') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="emergency_call" class="form-control-label">Emergency Call</label>
+                    <input type="text" name="emergency_call" value="{{ old('emergency_call') }}" class="form-control @error('emergency_call') is-invalid @enderror"/>
+                    @error('emergency_call') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">Tambah Karyawan</button>
+                </div>
              </form>
         </div>
     </div>
